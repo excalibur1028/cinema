@@ -23,5 +23,9 @@ class RoomsTableSeeder extends Seeder
         Room::create([
             'name' => 'Cinema 3',
         ]);
+
+        Room::create([
+            'name' => 'Cinema 4',
+        ]);
     }
 }

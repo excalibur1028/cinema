@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-    public function schedules()
+    public function movies()
     {
-        return $this->hasMany(Schedule::class);
+        return $this->hasMany(Movie::class);
     }
 }

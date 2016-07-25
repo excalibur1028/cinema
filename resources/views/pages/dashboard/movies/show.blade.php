@@ -18,34 +18,15 @@
         <div class="text-center"><b>Dates and Schedules</b></div>
         <hr>
         @foreach($movie->schedules as $schedule)
-            @if($schedule->rooms->name == 'Cinema 1')
-                <b>Cinema 1</b>
-                <ul>
-                    <li>{{ $schedule->air_date->toFormattedDateString() }} - {{ date("g:i A", strtotime($schedule->start_time)) }}</li>
-                </ul>
-            @elseif($schedule->rooms->name == 'Cinema 2')
-                <b>Cinema 2</b>
-                <ul>
-                    <li>{{ $schedule->air_date->toFormattedDateString() }} - {{ date("g:i A", strtotime($schedule->start_time)) }}</li>
-                </ul>
-            @elseif($schedule->rooms->name == 'Cinema 3')
-                <b>Cinema 3</b>
-                <ul>
-                    <li>{{ $schedule->air_date->toFormattedDateString() }} - {{ date("g:i A", strtotime($schedule->start_time)) }}</li>
-                </ul>
-            @endif
+                <li>{{ $schedule->air_date }}</li>
         @endforeach
+        <hr>
+        <div class="text-center">
+            <b>Add new schedule</b>
+        </div>
         {!! Form::open(['action' => ['SchedulesController@store', $movie->id]]) !!}
             <div class="form-group">
-                {{ Form::select('room_id', $rooms, null, ['class' => 'form-control']) }}
-            </div>
-            <div class="form-group">
-                {{ Form::label('air_date', 'Showing Date') }}
-                {{ Form::date('air_date', date('Y-m-d'), ['class' => 'form-control']) }}
-            </div>
-            <div class="form-group">
-                {{ Form::label('start_time', 'Starting Time') }}
-                {{ Form::time('start_time', null, ['class' => 'form-control']) }}
+                {{ Form::datetimeLocal('air_date', date('Y-m-d\TH:i'), ['class' => 'form-control']) }}
             </div>
             {!! Form::submit('Create', ['class' => 'btn btn-primary', 'style' => 'float:right']) !!}
         {!! Form::close() !!}

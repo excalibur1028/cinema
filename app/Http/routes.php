@@ -21,7 +21,7 @@ Route::auth();
 
 Route::get('purchase/{movie}', [
     'as' => 'purchase.movie',
-    'uses' => 'HomeController@show'
+    'uses' => 'PurchaseController@show'
 ]);
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'admin'], function() {

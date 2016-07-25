@@ -24,9 +24,7 @@ class CreateSchedule extends Request
     public function rules()
     {
         return [
-            'room_id'    => 'required',
-            'air_date'   => 'required',
-            'start_time' => 'required'
+            'air_date'   => 'required'
         ];
     }
 }

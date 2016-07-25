@@ -17,7 +17,26 @@
                         {{ Form::label('description', 'Description') }}
                         {{ Form::textarea('description', null, ['class' => 'form-control', 'size' => '30x5']) }}
                     </div>
-                    {!! Form::submit('Create', ['class' => 'btn btn-primary']) !!}
+                    <div class="form-group">
+                        {{ Form::label('genre', 'Genre') }}
+                        {{ Form::text('genre', null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('cast', 'Cast') }}
+                        {{ Form::text('cast', null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('room_id', 'Cinema Room') }}
+                        {{ Form::select('room_id', $rooms, null, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('release_date', 'Release Date') }}
+                        {{ Form::date('release_date', date('Y-m-d'), ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::number('price', null, ['class' => 'form-control'])}}
+                    </div>
+                    {!! Form::submit('Create', ['class' => 'btn btn-primary', 'style' => 'float:right']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

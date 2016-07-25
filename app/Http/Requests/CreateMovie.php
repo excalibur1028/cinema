@@ -25,7 +25,12 @@ class CreateMovie extends Request
     {
         return [
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'room_id' => 'required',
+            'genre' => 'required',
+            'cast' => 'required',
+            'price' => 'required',
+            'release_date' => 'required'
         ];
     }
 }

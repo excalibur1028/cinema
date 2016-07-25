@@ -7,23 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
-    protected $fillable = ['movie_id', 'room_id', 'air_date', 'start_time'];
-
-    protected $dates = ['air_date', 'start_time'];
-
-    public function getStartTimeAttribute($time)
-    {
-        return $this->attributes['start_time'] = Carbon::createFromTime('g:i a', $time);
-    }
-
     public function movies()
     {
         return $this->belongsTo(Movie::class, 'movie_id', 'id');
     }
 
-    public function rooms()
+    protected $fillable = ['movie_id', 'room_id', 'air_date'];
+
+    protected $dates = ['air_date'];
+
+    public function setAirDateAttribute($date)
     {
-        return $this->belongsTo(Room::class, 'room_id', 'id');
+        return $this->attributes['air_date'] = Carbon::parse($date);
+    }
+
+    public function getAirDateAttribute($value)
+    {
+        return date('F j \\- g:i A', strtotime($value));
     }
 
     public static function boot()

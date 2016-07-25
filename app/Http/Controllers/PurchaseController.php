@@ -5,15 +5,15 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Movie;
 use App\Room;
+use App\Schedule;
 
 class PurchaseController extends Controller
 {
     public function show(Movie $movie)
     {
-        $movie->load('schedules.rooms');
+        $schedule = Schedule::whereMovieId($movie->id)->pluck('air_date');
+        $cinema = $movie->rooms->name;
 
-        $rooms = Room::lists('name', 'id');
-
-        return $movie;
+        return view('pages.show', compact('movie', 'schedule', 'cinema'));
     }
 }

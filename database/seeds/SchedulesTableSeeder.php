@@ -14,9 +14,7 @@ class SchedulesTableSeeder extends Seeder
     {
         Schedule::create([
             'movie_id' => 1,
-            'room_id'  => 1,
             'air_date' => Carbon\Carbon::now(),
-            'start_time' => '10:00',
         ]);
     }
 }

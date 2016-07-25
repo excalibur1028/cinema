@@ -15,9 +15,7 @@ class CreatesSchedulesTable extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('movie_id')->unsigned();
-            $table->integer('room_id')->unsigned();
             $table->timestamp('air_date');
-            $table->time('start_time');
             $table->integer('seats');
             $table->timestamps();
         });
