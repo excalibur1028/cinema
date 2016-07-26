@@ -13,10 +13,19 @@ class MoviesTableSeeder extends Seeder
     public function run()
     {
         Movie::create([
+            'title' => 'Star Wars: The Force Awakens',
+            'description' => '30 years after the defeat of Darth Vader and the Empire, Rey, a scavenger from the planet Jakku, finds a BB-8 droid that knows the whereabouts of the long lost Luke Skywalker. Rey, as well as a rogue stormtrooper and two smugglers, are thrown into the middle of a battle between the Resistance and the daunting legions of the First Order.',
+            'genre' =>  'Action / Adventure / Fantasy / Sci-Fi / Thriller',
+            'cast'  =>  'Mark Hamill, Harrison Ford, Carrie Fisher',
+            'release_date' => Carbon\Carbon::now(),
+            'room_id' => '3'
+        ]);
+
+        Movie::create([
             'title' => 'Batman v Superman: Dawn of Justice',
             'description' => 'The general public is concerned over having Superman on their planet and letting the Dark Knight - Batman - pursue the streets of Gotham. While this is happening, a power-phobic Batman tries to attack Superman.,Meanwhile Superman tries to settle on a decision, and Lex Luthor, the criminal mastermind and millionaire, tries to use his own advantages to fight the "Man of Steel.',
             'genre' =>  'Action / Adventure / Sci-Fi',
-            'cast'  =>  'Jena Malone, Henry Cavill, Henry Cavill, Jeffrey Dean Morgan',
+            'cast'  =>  'Jena Malone, Henry Cavill, Jeffrey Dean Morgan',
             'release_date' => Carbon\Carbon::now(),
             'room_id' => '1'
         ]);
@@ -28,15 +37,6 @@ class MoviesTableSeeder extends Seeder
             'cast'  =>  'Ice Cube, Garcelle Beauvais, Nicki Minaj, Common',
             'release_date' => Carbon\Carbon::now(),
             'room_id' => '2'
-        ]);
-
-        Movie::create([
-            'title' => 'Star Wars: The Force Awakens',
-            'description' => '30 years after the defeat of Darth Vader and the Empire, Rey, a scavenger from the planet Jakku, finds a BB-8 droid that knows the whereabouts of the long lost Luke Skywalker. Rey, as well as a rogue stormtrooper and two smugglers, are thrown into the middle of a battle between the Resistance and the daunting legions of the First Order.',
-            'genre' =>  'Action / Adventure / Fantasy / Sci-Fi / Thriller',
-            'cast'  =>  'Mark Hamill, Harrison Ford, Carrie Fisher',
-            'release_date' => Carbon\Carbon::now(),
-            'room_id' => '3'
         ]);
 
         Movie::create([

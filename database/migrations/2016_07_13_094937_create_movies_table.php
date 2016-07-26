@@ -22,7 +22,6 @@ class CreateMoviesTable extends Migration
             $table->string('cast');
             $table->decimal('price');
             $table->timestamp('release_date');
-
             $table->timestamps();
         });
     }

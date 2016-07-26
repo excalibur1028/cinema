@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <td style="padding-right: 30px"><h5>Release Date</h5></td>
-                        <td><span>{{ $movie->release_date }}</span></td>
+                        <td><span>{{ $movie->release_date->toFormattedDateString() }}</span></td>
                     </tr>
                 </tbody>
             </table>

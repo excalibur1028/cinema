@@ -12,7 +12,7 @@ class Schedule extends Model
         return $this->belongsTo(Movie::class, 'movie_id', 'id');
     }
 
-    protected $fillable = ['movie_id', 'room_id', 'air_date'];
+    protected $fillable = ['movie_id', 'air_date'];
 
     protected $dates = ['air_date'];
 

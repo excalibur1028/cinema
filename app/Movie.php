@@ -17,9 +17,22 @@ class Movie extends Model
         return $this->belongsTo(Room::class, 'room_id', 'id');
     }
 
+    protected $fillable = [
+        'title',
+        'description',
+        'room_id',
+        'genre',
+        'cast',
+        'price',
+        'release_date'
+        ];
+
     protected $dates = ['release_date'];
 
-    protected $fillable = ['title', 'description'];
+    public function setReleaseDateAttribute($date)
+    {
+        return $this->attributes['release_date'] = Carbon::parse($date);
+    }
 
     public function getCoverAttribute()
     {

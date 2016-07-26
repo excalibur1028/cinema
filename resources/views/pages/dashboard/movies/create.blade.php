@@ -11,32 +11,32 @@
                 {!! Form::open(['route' => 'dashboard.movie.store']) !!}
                     <div class="form-group">
                         {{ Form::label('title', 'Title') }}
-                        {{ Form::text('title', null, ['class' => 'form-control']) }}
+                        {{ Form::text('title', null, ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="form-group">
                         {{ Form::label('description', 'Description') }}
-                        {{ Form::textarea('description', null, ['class' => 'form-control', 'size' => '30x5']) }}
+                        {{ Form::textarea('description', null, ['class' => 'form-control', 'size' => '30x5', 'required']) }}
                     </div>
                     <div class="form-group">
                         {{ Form::label('genre', 'Genre') }}
-                        {{ Form::text('genre', null, ['class' => 'form-control']) }}
+                        {{ Form::text('genre', null, ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="form-group">
                         {{ Form::label('cast', 'Cast') }}
-                        {{ Form::text('cast', null, ['class' => 'form-control']) }}
+                        {{ Form::text('cast', null, ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="form-group">
                         {{ Form::label('room_id', 'Cinema Room') }}
-                        {{ Form::select('room_id', $rooms, null, ['class' => 'form-control']) }}
+                        {{ Form::select('room_id', $rooms, null, ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="form-group">
                         {{ Form::label('release_date', 'Release Date') }}
-                        {{ Form::date('release_date', date('Y-m-d'), ['class' => 'form-control']) }}
+                        {{ Form::date('release_date', date('Y-m-d'), ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="form-group">
                         {{ Form::number('price', null, ['class' => 'form-control'])}}
                     </div>
-                    {!! Form::submit('Create', ['class' => 'btn btn-primary', 'style' => 'float:right']) !!}
+                    {!! Form::submit('Create', ['class' => 'btn btn-primary', 'style' => 'float:right', 'required']) !!}
                 {!! Form::close() !!}
             </div>
         </div>
