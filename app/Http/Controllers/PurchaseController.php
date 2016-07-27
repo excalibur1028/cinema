@@ -11,7 +11,7 @@ class PurchaseController extends Controller
 {
     public function show(Movie $movie)
     {
-        $schedule = Schedule::whereMovieId($movie->id)->pluck('air_date');
+        $schedule = Schedule::whereMovieId($movie->id)->lists('air_date', 'air_date');
         $cinema = $movie->rooms->name;
 
         return view('pages.show', compact('movie', 'schedule', 'cinema'));

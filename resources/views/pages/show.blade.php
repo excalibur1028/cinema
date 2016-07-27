@@ -33,21 +33,26 @@
     </div>
     <div class="col-xs-3">
         <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h4>{{$cinema}}</h4>
+            </div>
             <div class="panel-body">
-                {{ Form::open(['route' => 'tickets']) }}
+                {!! Form::open(['route' => 'tickets']) !!}
                     <div class="form-group">
-                        {{ Form::text('cinema', $cinema, ['class' => 'form-control', 'disabled']) }}
+                        {!! Form::hidden('cinema', $cinema) !!}
+                    </div>
+                    <div class="form-group{{ $errors->has('schedule') ? ' has-error' : '' }}">
+                        {!! Form::select('schedule', $schedule, null, ['class' => 'form-control', 'placeholder' => 'Select a Schedule']) !!}
+                        @if ($errors->has('schedule'))<span class="help-block"><strong>{{ $errors->first('schedule') }}</strong></span>@endif
+                    </div>
+                    <div class="form-group{{ $errors->has('quantity') ? ' has-error' : '' }}">
+                        {!! Form::selectRange('quantity', 1, 10, null, ['class' => 'form-control', 'placeholder' => 'Seat Quantity']) !!}
+                        @if ($errors->has('quantity'))<span class="help-block"><strong>{{ $errors->first('quantity') }}</strong></span>@endif
                     </div>
                     <div class="form-group">
-                        {{ Form::select('schedule', $schedule, null, ['class' => 'form-control', 'placeholder' => 'Select a Schedule']) }}
+                        {!! Form::submit('Purchase Ticket', ['class' => 'form-control btn btn-primary']) !!}
                     </div>
-                    <div class="form-group">
-                        {{ Form::selectRange('ticket', 1, 10, null, ['class' => 'form-control', 'placeholder' => 'Seat Quantity'])}}
-                    </div>
-                    <div class="form-group">
-                        {{ Form::submit('Purchase Ticket', ['class' => 'form-control btn btn-primary'])}}
-                    </div>
-                {{ Form::close() }}
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

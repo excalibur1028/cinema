@@ -43,7 +43,7 @@
         </div>
         {!! Form::open(['action' => ['SchedulesController@store', $movie->id]]) !!}
             <div class="form-group">
-                {{ Form::datetimeLocal('air_date', date('Y-m-d\TH:i'), ['class' => 'form-control']) }}
+                {!! Form::datetimeLocal('air_date', date('Y-m-d\TH:i'), ['class' => 'form-control']) !!}
             </div>
             {!! Form::submit('Create', ['class' => 'btn btn-primary', 'style' => 'float:right']) !!}
         {!! Form::close() !!}
