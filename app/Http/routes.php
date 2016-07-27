@@ -24,6 +24,12 @@ Route::get('purchase/{movie}', [
     'uses' => 'PurchaseController@show'
 ]);
 
+Route::post('tickets', [
+    'middleware' => 'auth',
+    'as' => 'tickets',
+    'uses' => 'TicketsController@store'
+    ]);
+
 Route::group(['prefix' => 'dashboard', 'middleware' => 'admin'], function() {
 
     Route::get('/', [

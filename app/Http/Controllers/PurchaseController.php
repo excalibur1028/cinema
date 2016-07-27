@@ -16,4 +16,5 @@ class PurchaseController extends Controller
 
         return view('pages.show', compact('movie', 'schedule', 'cinema'));
     }
+
 }

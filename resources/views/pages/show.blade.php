@@ -34,7 +34,7 @@
     <div class="col-xs-3">
         <div class="panel panel-default">
             <div class="panel-body">
-                {{ Form::open() }}
+                {{ Form::open(['route' => 'tickets']) }}
                     <div class="form-group">
                         {{ Form::text('cinema', $cinema, ['class' => 'form-control', 'disabled']) }}
                     </div>

@@ -21,8 +21,8 @@ class Authenticate
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             }
-
-            return redirect()->guest('login');
+            flash()->overlay('Please Login to Proceed', 'Oooops');
+            return redirect()->back();
         }
 
         return $next($request);
