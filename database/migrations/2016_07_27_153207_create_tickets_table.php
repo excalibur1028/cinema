@@ -14,7 +14,8 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned;
+            $table->integer('movie_id')->unsigned;
             $table->timestamp('schedule');
             $table->string('cinema');
             $table->integer('quantity');

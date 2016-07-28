@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
+
+use Auth;
+use App\Ticket;
+use App\Movie;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\CreateTicket;
-use Auth;
-use App\Ticket;
 
 class TicketsController extends Controller
 {
@@ -14,14 +15,20 @@ class TicketsController extends Controller
          return $this->middleware('auth');
      }
 
-     public function store(CreateTicket $request)
+     public function index()
+     {
+         $tickets = Auth::user()->tickets;
+
+         return view('pages.tickets.index', compact('tickets'));
+     }
+
+     public function store(Movie $movie, CreateTicket $request)
      {
         $user = Auth::user()->id;
+        $movie = $movie->id;
 
-       $test =  Ticket::create($request->all() + ['user_id' => $user]);
+       Ticket::create($request->all() + ['user_id' => $user] + ['movie_id' => $movie]);
 
-       dd($test);
-
-        return view('pages.tickets.index');
+        return redirect()->route('tickets');
      }
 }

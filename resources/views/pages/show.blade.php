@@ -37,7 +37,7 @@
                 <h4>{{$cinema}}</h4>
             </div>
             <div class="panel-body">
-                {!! Form::open(['route' => 'tickets']) !!}
+                {!! Form::open(['action' => ['TicketsController@store', $movie->id]]) !!}
                     <div class="form-group">
                         {!! Form::hidden('cinema', $cinema) !!}
                     </div>

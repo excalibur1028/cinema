@@ -18,7 +18,8 @@ class MoviesTableSeeder extends Seeder
             'genre' =>  'Action / Adventure / Fantasy / Sci-Fi / Thriller',
             'cast'  =>  'Mark Hamill, Harrison Ford, Carrie Fisher',
             'release_date' => Carbon\Carbon::now(),
-            'room_id' => '3'
+            'room_id' => '3',
+            'price' => 200
         ]);
 
         Movie::create([
@@ -27,7 +28,8 @@ class MoviesTableSeeder extends Seeder
             'genre' =>  'Action / Adventure / Sci-Fi',
             'cast'  =>  'Jena Malone, Henry Cavill, Jeffrey Dean Morgan',
             'release_date' => Carbon\Carbon::now(),
-            'room_id' => '1'
+            'room_id' => '1',
+            'price' => 200
         ]);
 
         Movie::create([
@@ -36,7 +38,8 @@ class MoviesTableSeeder extends Seeder
             'genre' =>  'Comedy',
             'cast'  =>  'Ice Cube, Garcelle Beauvais, Nicki Minaj, Common',
             'release_date' => Carbon\Carbon::now(),
-            'room_id' => '2'
+            'room_id' => '2',
+            'price' => 200
         ]);
 
         Movie::create([
@@ -45,7 +48,8 @@ class MoviesTableSeeder extends Seeder
             'genre' =>  'Science fiction film/Thriller',
             'cast'  =>  'Frank Grillo, Elizabeth Mitchell, Mykelti Williamson',
             'release_date' => Carbon\Carbon::now(),
-            'room_id' => '4'
+            'room_id' => '4',
+            'price' => 200
         ]);
     }
 }

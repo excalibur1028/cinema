@@ -17,6 +17,11 @@ class Movie extends Model
         return $this->belongsTo(Room::class, 'room_id', 'id');
     }
 
+    // public function tickets()
+    // {
+    //     return $this->hasMany(Ticket::class);
+    // }
+
     protected $fillable = [
         'title',
         'description',

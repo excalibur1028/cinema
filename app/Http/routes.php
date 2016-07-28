@@ -24,11 +24,19 @@ Route::get('purchase/{movie}', [
     'uses' => 'PurchaseController@show'
 ]);
 
-Route::post('tickets', [
-    'middleware' => 'auth',
-    'as' => 'tickets',
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('tickets', [
+        'as' => 'tickets',
+        'uses' => 'TicketsController@index'
+    ]);
+
+    Route::post('tickets/{movie}', [
+    'as' => 'tickets.store',
     'uses' => 'TicketsController@store'
     ]);
+
+});
+
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'admin'], function() {
 
