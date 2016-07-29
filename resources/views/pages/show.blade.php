@@ -27,6 +27,10 @@
                         <td style="padding-right: 30px"><h5>Release Date</h5></td>
                         <td><span>{{ $movie->release_date->toFormattedDateString() }}</span></td>
                     </tr>
+                    <tr>
+                        <td style="padding-right: 30px"><h5>Price</h5></td>
+                        <td><span>&#8369;{{ $movie->price }}</span></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -40,6 +44,7 @@
                 {!! Form::open(['action' => ['TicketsController@store', $movie->id]]) !!}
                     <div class="form-group">
                         {!! Form::hidden('cinema', $cinema) !!}
+                        {!! Form::hidden('movie_id', $movie->id) !!}
                     </div>
                     <div class="form-group{{ $errors->has('schedule') ? ' has-error' : '' }}">
                         {!! Form::select('schedule', $schedule, null, ['class' => 'form-control', 'placeholder' => 'Select a Schedule']) !!}

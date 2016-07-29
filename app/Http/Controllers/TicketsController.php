@@ -22,13 +22,24 @@ class TicketsController extends Controller
          return view('pages.tickets.index', compact('tickets'));
      }
 
-     public function store(Movie $movie, CreateTicket $request)
+     public function store(CreateTicket $request)
      {
         $user = Auth::user()->id;
-        $movie = $movie->id;
 
-       Ticket::create($request->all() + ['user_id' => $user] + ['movie_id' => $movie]);
+        $total = $this->subTotal($request);
 
-        return redirect()->route('tickets');
+       Ticket::create($request->all() + ['user_id' => $user, 'price' => $total]);
+
+        return redirect()->route('tickets.index');
+     }
+
+     protected function getMovie(CreateTicket $request)
+     {
+         return Movie::findOrFail($request->input('movie_id'));
+     }
+
+     protected function subTotal(CreateTicket $request)
+     {
+         return $request->input('quantity') * $this->getMovie($request)->price;
      }
 }
