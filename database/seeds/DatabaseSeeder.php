@@ -11,12 +11,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(UsersTableSeeder::class);
-         $this->call(RoomsTableSeeder::class);
-         $this->call(MoviesTableSeeder::class);
-         $this->call(SchedulesTableSeeder::class);
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-         // App\Schedule::truncate();
-         // factory(App\Schedule::class, 10)->create();
+        App\User::truncate();
+        App\Room::truncate();
+        App\Movie::truncate();
+        App\Schedule::truncate();
+
+        $this->call(UsersTableSeeder::class);
+        $this->call(RoomsTableSeeder::class);
+        $this->call(SchedulesTableSeeder::class);
+        $this->call(MoviesTableSeeder::class);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
