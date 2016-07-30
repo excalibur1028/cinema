@@ -25,7 +25,18 @@ Route::get('purchase/{movie}', [
 ]);
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('tickets/completed', [
+        'as' => 'tickets.completed',
+        'uses' => 'TicketsController@completed'
+    ]);
+
     Route::resource('tickets', 'TicketsController');
+
+    Route::post('tickets/purchase', [
+        'as' => 'tickets.purchase',
+        'uses' => 'TicketsController@purchase'
+    ]);
+
 });
 
 

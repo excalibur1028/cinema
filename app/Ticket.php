@@ -24,4 +24,9 @@ class Ticket extends Model
     {
         return $this->whereCompleted('false')->whereUserId(Auth::user()->id)->sum('price');
     }
+
+    public function getPriceToDollar()
+    {
+        return ceil($this->getGrandTotal() / 47.01);
+    }
 }

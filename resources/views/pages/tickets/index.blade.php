@@ -33,6 +33,7 @@
     @endforeach
 </div>
 <div class="col-xs-6 col-xs-offset-2">
+    @if($tickets->count())
     <table class="table table-bordered">
         <tbody>
             <tr>
@@ -57,8 +58,20 @@
             </tr>
         </tbody>
     </table>
+    <hr>
+    <form id="checkout" method="post" action="tickets/purchase">
+        <div id="payment-form"></div>
+        <button class="btn btn-primary" type="submit">Purchase</button>
+    </form>
+
+    <script src="https://js.braintreegateway.com/js/braintree-2.27.0.min.js"></script>
+    <script>
+        var client_token ="<?php echo(Braintree\ClientToken::generate()); ?>";
+        braintree.setup(client_token, "dropin", {
+          container: "payment-form"
+        });
+    </script>
+    @endif
 </div>
-
-
 
 @endsection
