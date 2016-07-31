@@ -41,6 +41,13 @@ class TicketsController extends Controller
         return redirect()->route('tickets.index');
      }
 
+     public function destroy($id)
+     {
+         Auth::user()->tickets()->findOrFail($id)->delete();
+
+         return redirect()->back();
+     }
+
      public function purchase(Request $request)
      {
         $user = Auth::user();
@@ -59,7 +66,7 @@ class TicketsController extends Controller
             $ticket->save();
         }
 
-        flash()->overlay('Transaction Completed', 'Thank You');
+       alert()->success('Transaction Completed', 'Thank You')->autoclose(4000);
 
         return redirect()->route('tickets.completed');
      }

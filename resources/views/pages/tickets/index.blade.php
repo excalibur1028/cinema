@@ -1,12 +1,20 @@
 @extends('app')
 
 @section('content')
+@if($tickets->count())
 <div class="col-xs-4">
     @foreach($tickets as $ticket)
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <td colspan="2"><h4 class="text-center">Movie Details</h4></td>
+                    <td colspan="2">
+                        {{ Form::open(['method' => 'DELETE', 'url' => '/tickets/' . $ticket->id]) }}
+                            <button type="submit" class="btn btn-sm btn-default btn-flat" style="float:right"  data-toggle="tooltip" data-placement="top" title="Remove Ticket">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                        {{ Form::close() }}
+                        <h4 class="text-center">Movie Details</h4>
+                    </td>
                 </tr>
                 <tr>
                     <td><h5>Movie</h5></td>
@@ -73,5 +81,11 @@
     </script>
     @endif
 </div>
+@else
+<div class="col-xs-12">
+    <h3>You have no pending tickets</h3>
+    <hr>
+</div>
+@endif
 
 @endsection

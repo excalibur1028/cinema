@@ -8,6 +8,14 @@
         </div>
         <div class="col-xs-8">
             <h3 style="margin:0px">
+                {{ Form::open(['method' => 'DELETE', 'route' => ['dashboard.movie.destroy', $movie->id]]) }}
+                    <button id="delete "type="submit" class="btn btn-sm btn-default btn-flat" style="float:right"  data-toggle="tooltip" data-placement="top" title="Delete">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                {{ Form::close() }}
+                <button type="submit" class="btn btn-sm btn-default btn-flat" style="float:right"  data-toggle="tooltip" data-placement="top" title="Edit">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
                 <b>{{ $movie->title }}</b>
             </h3>
             <hr>

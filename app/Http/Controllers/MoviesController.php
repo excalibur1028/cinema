@@ -28,4 +28,11 @@ class MoviesController extends Controller
     {
         return view('pages.dashboard.movies.show', compact('movie'));
     }
+
+    public function destroy(Movie $movie)
+    {
+        $movie->delete();
+
+        return redirect()->route('dashboard.home');
+    }
 }

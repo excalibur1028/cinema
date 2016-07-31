@@ -15,6 +15,9 @@
                     Cinema Ticketing
                 </a>
             </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{{ route('tickets.index') }}">Tickets</a></li>
+            </ul>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
@@ -37,6 +40,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/tickets/completed')}}"><i class="fa fa-list-alt"></i>Purchase History</a></li>
                             </ul>
                         </li>
                     @endif

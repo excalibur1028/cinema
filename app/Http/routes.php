@@ -47,11 +47,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'admin'], function() {
         'uses' => 'DashboardController@index'
     ]);
 
-    Route::resource('movie', 'MoviesController', ['except' => 'index']);
-
     Route::post('movie/{movie}/schedule', [
         'as'   => 'dashboard.schedule.store',
         'uses' => 'SchedulesController@store']);
+
+    Route::resource('movie', 'MoviesController', ['except' => 'index']);
 });
 
 

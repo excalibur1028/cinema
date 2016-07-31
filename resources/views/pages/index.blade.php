@@ -10,7 +10,7 @@
         <div class="col-xs-3" style="padding-bottom:30px">
             <a href="{{ route('purchase.movie', $movie->id) }}">
                 <div style="padding-bottom: 10px">
-                    <img class="img-responsive" src={{ asset($movie->cover) }} width="230" height="345">
+                    <img class="img-responsive" src={{ asset($movie->cover) }}>
                 </div>
                 <b>{{ $movie->title }}</b>
             </a>
