@@ -40,6 +40,7 @@
                         @if ($errors->has('release_date'))<span class="help-block"><strong>{{ $errors->first('release_date') }}</strong></span>@endif
                     </div>
                     <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+                        {!! Form::label('price', 'Movie Price') !!}
                         {!! Form::number('price', null, ['class' => 'form-control']) !!}
                         @if ($errors->has('price'))<span class="help-block"><strong>{{ $errors->first('price') }}</strong></span>@endif
                     </div>

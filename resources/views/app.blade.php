@@ -38,11 +38,5 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     @include('sweet::alert')
-    {{-- <script>
-        $('#flash-overlay-modal').modal();
-        $(function () {
-          $('[data-toggle="tooltip"]').tooltip()
-        });
-    </script> --}}
 </body>
 </html>

@@ -21,6 +21,8 @@ class MoviesController extends Controller
         $movies = Movie::create($request->all());
         $new = $movies->id;
 
+        alert()->success('Movie Successfuly Created', 'Good Job')->autoclose(4000);
+
         return redirect()->route('dashboard.movie.show', compact('new'));
     }
 
